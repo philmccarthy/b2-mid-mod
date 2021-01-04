@@ -25,5 +25,16 @@ RSpec.describe 'movie show page', type: :feature do
       expect(@fey.name).to appear_before(@fox.name)
       expect(page).to have_content(@m1.actors.avg_age)
     end
+
+    it 'I see a form to add an actors name to the movie and when I fill in the form with an existing actor name I am redirected back to that movie show page And I see the actor name listed' do
+      quest = Actor.create!(name: 'Questlove', age: 49)
+      visit movie_path(@m1)
+      expect(page).to have_content('Add an Actor')
+
+      fill_in 'Add an Actor', with: 'Questlove'
+      click_button 'Submit'
+
+      expect(page).to have_content(quest.name)
+    end
   end
 end
