@@ -13,3 +13,12 @@
   </li>
   <li>Actors Average Age: <%= @movie.actors.avg_age.round(1) %></li>
 </ul>
+
+<section id="add-actor">
+  <%= form_tag movie_actors_path, method: :post do %>
+    <%= label_tag :actor_name, "Add an Actor" %>
+    <%= text_field_tag :actor_name %><br>
+    <%= hidden_field_tag 'movie_id', @movie.id %>
+    <%= submit_tag 'Submit' %>
+<% end %>
+</section>
