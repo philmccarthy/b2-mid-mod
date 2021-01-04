@@ -5,9 +5,11 @@ RSpec.describe 'studios index page', type: :feature do
     before(:each) do
       Studio.destroy_all
       Movie.destroy_all
+
       @studio_1 = Studio.create!(name: 'Pixar', location: 'California')
       @studio_2 = Studio.create!(name: 'Disney', location: 'California')
       @studio_3 = Studio.create!(name: 'Lucasfilm', location: 'California')
+      
       @m1 = @studio_1.movies.create!(title: 'Soul', creation_year: 2020, genre: 'Animation')
       @m2 = @studio_1.movies.create!(title: 'Toy Story', creation_year: 1995, genre: 'Animation')
       @m3 = @studio_2.movies.create!(title: 'Johnny Tsunami', creation_year: 1999, genre: 'Family')
