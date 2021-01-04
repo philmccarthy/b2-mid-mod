@@ -18,7 +18,6 @@ RSpec.describe 'studios index page', type: :feature do
 
     it 'i see a list of all of the movie studios and the names of all of its movies' do
       visit studios_path
-      save_and_open_page
 
       within("#studio-#{@studio_1.id}-movies") do
         expect(page).to have_content(@studio_1.name)
