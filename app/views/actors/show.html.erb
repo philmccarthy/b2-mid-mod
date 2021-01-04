@@ -1,0 +1,9 @@
+<h2><%= @actor.name %></h2>
+<h4>Age: <%= @actor.age %></h4>
+
+<h4>Actors they've worked with:</h4>
+<ul>
+  <% @actor.movies.uniq_actor_names(@actor.name).each do |actor| %>
+    <li><%= actor %></li>
+  <% end %>
+</ul>
